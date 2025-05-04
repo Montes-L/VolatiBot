@@ -1,0 +1,4 @@
+yfinance
+requests
+pytz
+datetime
