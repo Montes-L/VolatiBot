@@ -5,7 +5,7 @@ FROM python:alpine
 WORKDIR /app
 
 # Copie les fichiers dans l'image
-COPY ./stock-trading-discord-alert-app/ .
+COPY ./volatibot/ .
 
 # Installe les dépendances
 RUN pip install --no-cache-dir -r requirements.txt

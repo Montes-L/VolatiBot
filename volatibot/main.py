@@ -8,13 +8,13 @@ tickers = [ticker.strip().upper() for ticker in tickers_env.split(",") if ticker
 # Récupère le seuil d'alerte
 levels_env = os.getenv("ALERT_LEVELS", "5,10,15")
 levels = [float(level.strip()) for level in levels_env.split(",") if level.strip()]
-interval = int(os.getenv("CHECK_INTERVAL", "600"))  # par défaut toutes les 10 minutes
+interval = int(os.getenv("CHECK_INTERVAL", "600"))  # default is 10 minutes
 
 checker = VariationChecker(tickers=tickers, levels=levels)
 
 while True:
-    print("⏰ Nouvelle vérification des variations boursières...")
+    print("New verification of stock market variations...")
     checker.check_open_prepost_market()
-    print(f"🕒 Pause de {interval} secondes avant la prochaine vérification.\n")
+    print(f"Pause {interval} seconds before next check.\n")
     time.sleep(interval)
 
