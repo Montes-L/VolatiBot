@@ -3,16 +3,6 @@
 Receive real-time Discord notifications (messages are in French by default — customizable in `variation_checker.py`) when your selected stocks vary by a specified percentage since the last market close.
 
 
-
-## Build the Docker image
-
-In the root folder, run:
-
-```bash
-./build-image.sh
-```
-
-
 ## Run the Docker container
 
 ### Option 1: Using the provided script
@@ -33,7 +23,7 @@ docker run -d \
   -e ALERT_LEVELS="5,10,15" \
   -e DISCORD_WEBHOOK_URL="https://your-webhook-url" \
   --name stock-variation-alert-app \
-  $IMAGE_NAME
+  lilmts/volatibot:1.0
 ```
 
 ---
@@ -43,7 +33,7 @@ docker run -d \
 ```yaml
 services:
   stock-variation-alert-app:
-    image: $IMAGE_NAME
+    image: lilmts/volatibot:1.0
     container_name: stock-variation-alert-app
     environment:
       - TICKERS=AAPL,MSFT,AMZN,GOOG,META  # Format: uppercase symbols separated by commas
@@ -51,4 +41,12 @@ services:
       - DISCORD_WEBHOOK_URL=https://your-webhook-url
       - CHECK_INTERVAL=600               # Run checks every 600 seconds (10 minutes)
     restart: unless-stopped
+```
+
+## Build the Docker image locally
+
+In the root folder, run:
+
+```bash
+./build-image.sh
 ```
