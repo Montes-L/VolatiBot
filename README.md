@@ -34,7 +34,7 @@ docker run -d \
 services:
   volatibot:
     image: lilmts/volatibot:1.0
-    container_name: stock-variation-alert-app
+    container_name: volatibot
     environment:
       - TICKERS=AAPL,MSFT,AMZN,GOOG,META  # Format: uppercase symbols separated by commas
       - ALERT_LEVELS=5,10,15              # Format: percentage thresholds separated by commas
