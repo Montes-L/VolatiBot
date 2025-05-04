@@ -32,7 +32,7 @@ docker run -d \
 
 ```yaml
 services:
-  stock-variation-alert-app:
+  volatibot:
     image: lilmts/volatibot:1.0
     container_name: stock-variation-alert-app
     environment:
